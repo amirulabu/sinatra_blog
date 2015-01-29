@@ -1,3 +1,3 @@
-get /tag/:tag do
+get '/tag/:tag' do
   params[:tag]
 end
