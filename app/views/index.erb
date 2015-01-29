@@ -2,6 +2,15 @@
   <h1>Welcome to Blog</h1>
 
   <a href="/create">Create a blog post</a> | <a href="#"> View all tags</a>
-  <p>this is a test</p>
+  <% Post.all.each do |x| %>
+  <h2><a href="/post/<%= x.id %>"><%= x.title %></a></h2>
+  <p><%= x.content %></p>
+    <% PostsTag.where(post_id: x.id).each do |y| %>
+    <p> Tags: <a href="/tag/<%= y.tag_id %>"><%= Tag.find(y.tag_id).label %></a></p>
+    <% end %>
+  <br />
+  <% end %>
 
 </div>
+
+

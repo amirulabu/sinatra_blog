@@ -1,0 +1,15 @@
+<div class="container">
+  <h1>blog single post</h1>
+
+  <a href="/">Home</a> | <a href="/create">Create a blog post</a> | <a href="#"> View all tags</a>
+
+  <%  x  = Post.find(params[:post]) %>
+  <h2><%= x.title %></h2>
+  <p><%= x.content %></p>
+    <% PostsTag.where(post_id: x.id).each do |y| %>
+    <p> Tags: <%= Tag.find(y.tag_id).label %></p>
+    <% end %>
+  <br />
+  <% %>
+
+</div>

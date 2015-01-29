@@ -15,7 +15,7 @@ class CreatePostsAndTags < ActiveRecord::Migration
 
     create_table :posts_tags, id: false do |t|
       t.belongs_to :tag, index: true
-      t.belongs_to :part, index: true
+      t.belongs_to :post, index: true
     end
 
   end

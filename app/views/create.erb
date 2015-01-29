@@ -2,16 +2,19 @@
   <h1>Welcome to Blog</h1>
 
   <a href="/">Home</a> | <a href="#"> View all tags</a>
-  <p>this is a test</p>
-
+  <br /><br />
   <form action="createpost" method="POST">
     Title: <br />
-    <input type="text" name="title"><br />
+    <input type="text" name="content[title]"><br /><br />
     Content: <br />
-    <textarea rows="4" cols="50" name="content"></textarea>
-    <br />
+    <textarea rows="4" cols="50" name="content[content]"></textarea>
+    <br /><br />
     Tags:
-    <input type="text" name="tags">
+    <select name="tag[tag_id]">
+      <% Tag.all.each do |x| %>
+      <option value="<%= x.id %>"><%= x.id %> <%= x.label %></option>
+      <% end %>
+    </select>
     <br /><br />
     <input type="submit" value="Submit">
   </form>
