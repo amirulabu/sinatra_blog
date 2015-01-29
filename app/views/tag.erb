@@ -1,13 +1,12 @@
 <div class="container">
-  <h1>Post from tag <%= params[:tag] %></h1>
+  <h1>blog single post</h1>
 
-  <a href="/">Home</a> | <a href="/create">Create a blog post</a>
-    <% @array.each do |y| %>
-      <h2><%= Post.find(y).title %></h2>
-      <p><%= Post.find(y).content %></p>
-    <% end %>
-  <br />
+  <a href="/">Home</a> | <a href="/create">Create a blog post</a> | <a href="#"> View all tags</a>
+
+  <h2>All tags!</h2>
+  <% Tag.all.each do |x|%>
+  <p><a href="/tag/<%= x.id %>"><%= x.label %></a></p>
+  <% end %>
+
 
 </div>
-
-
